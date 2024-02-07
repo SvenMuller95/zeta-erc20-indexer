@@ -1,0 +1,61 @@
+type EventsSummary {
+  id: ID!
+  zETA_Approval: [ZETA_Approval!]! @derivedFrom(field: "eventsSummary")
+  zETA_ApprovalCount: BigInt!
+  zETA_ClaimReward: [ZETA_ClaimReward!]! @derivedFrom(field: "eventsSummary")
+  zETA_ClaimRewardCount: BigInt!
+  zETA_Deposit: [ZETA_Deposit!]! @derivedFrom(field: "eventsSummary")
+  zETA_DepositCount: BigInt!
+  zETA_NewRewardPool: [ZETA_NewRewardPool!]! @derivedFrom(field: "eventsSummary")
+  zETA_NewRewardPoolCount: BigInt!
+  zETA_Transfer: [ZETA_Transfer!]! @derivedFrom(field: "eventsSummary")
+  zETA_TransferCount: BigInt!
+  zETA_Withdrawal: [ZETA_Withdrawal!]! @derivedFrom(field: "eventsSummary")
+  zETA_WithdrawalCount: BigInt!
+}
+
+type ZETA_Approval {
+  id: ID!
+  owner: String!
+  spender: String!
+  value: BigInt!
+  eventsSummary: String!
+}
+
+type ZETA_ClaimReward {
+  id: ID!
+  account: String!
+  idx: BigInt!
+  amount: BigInt!
+  eventsSummary: String!
+}
+
+type ZETA_Deposit {
+  id: ID!
+  account: String!
+  idx: BigInt!
+  amount: BigInt!
+  eventsSummary: String!
+}
+
+type ZETA_NewRewardPool {
+  id: ID!
+  rewardPool: String!
+  eventsSummary: String!
+}
+
+type ZETA_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  value: BigInt!
+  eventsSummary: String!
+}
+
+type ZETA_Withdrawal {
+  id: ID!
+  account: String!
+  idx: BigInt!
+  amount: BigInt!
+  eventsSummary: String!
+}

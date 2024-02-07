@@ -1,0 +1,21 @@
+name: zeta-erc20-indexer
+networks:
+- id: 7000
+  rpc_config:
+    url: https://zetachain-mainnet-archive.allthatnode.com:8545
+    unstable__sync_config:
+      initial_block_interval: 500
+      interval_ceiling: 500
+  start_block: 1655486
+  contracts:
+  - name: ZETA
+    address:
+    - 0x5F0b1a82749cb4E2278EC87F8BF6B618dC71a8bf
+    handler: src/EventHandlers.ts
+    events:
+    - event: Approval(address indexed owner, address indexed spender, uint256 value)
+    - event: ClaimReward(address indexed account, uint256 indexed idx, uint256 amount)
+    - event: Deposit(address indexed account, uint256 indexed idx, uint256 amount)
+    - event: NewRewardPool(address rewardPool)
+    - event: Transfer(address indexed from, address indexed to, uint256 value)
+    - event: Withdrawal(address indexed account, uint256 indexed idx, uint256 amount)
